@@ -4,7 +4,7 @@ import sbt.Def.Initialize
 import sbt.Keys._
 import sbt._
 
-class SbtForkProcess {
+object SbtForkProcess {
 
   private[this] def classpathOption(classpath: Seq[File]) = "-classpath" :: Path.makeString(classpath) :: Nil
   private[this] def scalaOptions(mainClass: String): Initialize[Task[List[String]]] = fullClasspath map { (cp) =>
