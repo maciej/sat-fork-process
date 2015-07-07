@@ -5,7 +5,7 @@ import bintray.Keys._
 
 object Publishing {
   lazy val settings: Seq[Setting[_]] = bintrayPublishSettings ++ Seq(
-    publishMavenStyle := true,
+    publishMavenStyle := false,
     publishArtifact in Test := false,
     pomExtra :=
       <developers>
