@@ -1,5 +1,8 @@
 # SBT fork process
 
+[![Build Status](https://travis-ci.org/maciej/sbt-fork-process.svg)](https://travis-ci.org/maciej/sbt-fork-process)
+[![Download](https://api.bintray.com/packages/maciej/sbt-plugin-releases/sbt-fork-process/images/download.svg) ](https://bintray.com/maciej/sbt-plugin-releases/sbt-fork-process/_latestVersion)
+
 This plugin enables you to start a forked process from a Java/Scala class (that have a `main(...)` method).
 It's backed by SBT's `fork` functionality.
 
