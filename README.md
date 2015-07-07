@@ -15,6 +15,3 @@ resolvers += Resolver.url("maciej-sbt-plugins",
 
 addSbtPlugin("me.maciejb" % "sbt-fork-process" % "0.1.0")
 ```
-
-### TODO
-* Add testing, see [[1]](http://stackoverflow.com/questions/19102208/how-to-test-sbt-plugins), [[2]](http://eed3si9n.com/testing-sbt-plugins)
