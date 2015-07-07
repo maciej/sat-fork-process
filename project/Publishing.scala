@@ -18,7 +18,7 @@ object Publishing {
     licenses := ("Apache-2.0", new java.net.URL("http://www.apache.org/licenses/LICENSE-2.0.txt")) :: Nil,
     homepage := Some(new java.net.URL("http://maciejb.me")),
     bintrayOrganization in bintray := Some("maciej"),
-    vcsUrl in bintray := Some("")
+    vcsUrl in bintray := Some("git@github.com:maciej/sbt-fork-process.git")
   )
 
 }
