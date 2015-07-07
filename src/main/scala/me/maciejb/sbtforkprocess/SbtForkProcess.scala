@@ -7,9 +7,11 @@ import sbt._
 object SbtForkProcess {
 
   private[this] def classpathOption(classpath: Seq[File]) = "-classpath" :: Path.makeString(classpath) :: Nil
-  private[this] def scalaOptions(mainClass: String): Initialize[Task[List[String]]] = fullClasspath map { (cp) =>
-    classpathOption(Attributed.data(cp)) ::: mainClass :: Nil
-  }
+  private[this] def scalaOptions(mainClass: String): Initialize[Task[List[String]]] =
+    (fullClasspath in Runtime) map { (cp) =>
+      classpathOption(Attributed.data(cp)) ::: mainClass :: Nil
+    }
+
   private[this] def forkOptions: Initialize[Task[ForkOptions]] =
     (baseDirectory, javaOptions, outputStrategy, envVars, javaHome, connectInput) map {
       (base, options, strategy, env, javaHomeDir, connectIn) =>
