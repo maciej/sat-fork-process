@@ -5,3 +5,4 @@ sbtPlugin := true
 
 Publishing.settings
 
+releaseSettings
