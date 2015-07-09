@@ -12,17 +12,17 @@ object SbtForkProcess {
       classpathOption(Attributed.data(cp)) ::: mainClass :: Nil
     }
 
-  private[this] def forkOptions(config: Configuration): Initialize[Task[ForkOptions]] =
-    (baseDirectory in config, javaOptions in config, outputStrategy in config, envVars in config,
-      javaHome in config, connectInput in config) map {
+  private[this] def forkOptions(scope: Scope): Initialize[Task[ForkOptions]] =
+    (baseDirectory in scope, javaOptions in scope, outputStrategy in scope, envVars in scope,
+      javaHome in scope, connectInput in scope) map {
       (base, options, strategy, env, javaHomeDir, connectIn) =>
         // bootJars is empty by default because only jars on the user's classpath should be on the boot classpath
         ForkOptions(bootJars = Nil, javaHome = javaHomeDir, connectInput = connectIn, outputStrategy = strategy,
           runJVMOptions = options, workingDirectory = Some(base), envVars = env)
     }
 
-  def forkRunClass(mainClass: String, config: Configuration = Global): Initialize[Task[Process]] = Def.task {
-    Fork.java.fork(forkOptions(config).value, scalaOptions(mainClass).value)
+  def forkRunClass(mainClass: String, scope: Scope = Global): Initialize[Task[Process]] = Def.task {
+    Fork.java.fork(forkOptions(scope).value, scalaOptions(mainClass).value)
   }
 
 }
